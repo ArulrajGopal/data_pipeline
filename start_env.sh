@@ -1,4 +1,4 @@
 cd
 source /home/Arulraj/myenv/bin/activate
-cd Desktop/Project1
+cd Desktop/DATA_PIPELINE
 
