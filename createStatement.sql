@@ -33,3 +33,26 @@ CREATE TABLE IF NOT EXISTS orderdetails (
     FOREIGN KEY (orderid) REFERENCES orders(orderid) ON DELETE CASCADE,  
     FOREIGN KEY (productid) REFERENCES product(productid) ON DELETE CASCADE 
 );
+
+
+-- CREATE OR REPLACE PROCEDURE reload_user_order_totals()
+-- LANGUAGE plpgsql
+-- AS $$
+-- BEGIN
+--     TRUNCATE TABLE user_order_totals;
+
+
+--     INSERT INTO user_order_totals (user_id, customer_name, order_amount, updated_at)
+--     SELECT 
+--         C.user_id,
+--         C.customer_name,
+--         SUM(A.quantity * B.price_per_qty) AS order_amount,
+--         CURRENT_TIMESTAMP
+--     FROM orders A
+--     JOIN products B ON A.product_id = B.product_id
+--     JOIN users C ON A.user_id = C.user_id
+--     GROUP BY C.user_id, C.customer_name;
+
+--     RAISE NOTICE 'User order totals have been reloaded successfully.';
+-- END;
+-- $$;
