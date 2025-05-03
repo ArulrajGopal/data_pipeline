@@ -1,18 +1,77 @@
--- Insert users
-INSERT INTO users (user_id, customer_name, age, city) VALUES
-(1, 'Alice Johnson', 28, 'New York'),
-(2, 'Bob Smith', 35, 'Los Angeles'),
-(3, 'Charlie Davis', 22, 'Chicago');
+INSERT INTO customer (customer_id, name, city, state) VALUES
+(1, 'John Doe', 'New York', 'NY'),
+(2, 'Jane Smith', 'Los Angeles', 'CA'),
+(3, 'Michael Johnson', 'Chicago', 'IL'),
+(4, 'Emily Davis', 'Houston', 'TX'),
+(5, 'David Wilson', 'Phoenix', 'AZ');
 
--- Insert products
-INSERT INTO products (product_id, product_name, product_category, price_per_qty) VALUES
-(1, 'Apple iPhone 14', 'Electronics', 799.99),
-(2, 'Nike Running Shoes', 'Footwear', 120.00),
-(3, 'Organic Bananas (1 lb)', 'Groceries', 0.79);
+INSERT INTO product (productid, product_name, category, unit_price) VALUES
+(1, 'Laptop', 'Electronics', 1200.00),
+(2, 'Smartphone', 'Electronics', 800.00),
+(3, 'Tablet', 'Electronics', 400.00),
+(4, 'Headphones', 'Accessories', 150.00),
+(5, 'Keyboard', 'Accessories', 50.00),
+(6, 'Mouse', 'Accessories', 25.00),
+(7, 'Desk Chair', 'Furniture', 200.00),
+(8, 'Monitor', 'Electronics', 300.00),
+(9, 'Printer', 'Electronics', 150.00),
+(10, 'Smartwatch', 'Wearables', 250.00);
 
--- Insert orders
-INSERT INTO orders (order_id, user_id, product_id, order_date, quantity) VALUES
-(1, 1, 1, '2025-04-10', 1),
-(2, 2, 2, '2025-04-12', 2),
-(3, 3, 3, '2025-04-15', 5),
-(4, 1, 3, '2025-04-16', 10);
+INSERT INTO orders (orderid, customer_id, order_date) VALUES
+(1, 1, '2025-01-05'),
+(2, 1, '2025-02-10'),
+(3, 2, '2025-01-20'),
+(4, 2, '2025-03-15'),
+(5, 3, '2025-01-25'),
+(6, 3, '2025-02-18'),
+(7, 4, '2025-02-01'),
+(8, 4, '2025-04-02'),
+(9, 5, '2025-01-30'),
+(10, 5, '2025-03-10'),
+(11, 1, '2025-03-05'),
+(12, 1, '2025-04-18'),
+(13, 2, '2025-04-12'),
+(14, 2, '2025-05-20'),
+(15, 3, '2025-04-25'),
+(16, 3, '2025-05-05'),
+(17, 4, '2025-05-15'),
+(18, 4, '2025-06-01'),
+(19, 5, '2025-06-15'),
+(20, 5, '2025-06-28');
+
+
+INSERT INTO orderdetails (orderid, productid, qty) VALUES
+(1, 1, 1),
+(1, 2, 2),
+(2, 3, 3),
+(2, 4, 1),
+(3, 5, 2),
+(3, 6, 3),
+(4, 7, 1),
+(4, 8, 2),
+(5, 9, 1),
+(5, 10, 1),
+(6, 3, 1),
+(6, 7, 1),
+(7, 8, 1),
+(7, 1, 1),
+(8, 9, 2),
+(8, 5, 1),
+(9, 6, 2),
+(9, 2, 1),
+(10, 3, 2),
+(10, 4, 1),
+(11, 10, 1),
+(12, 7, 1),
+(12, 4, 1),
+(13, 10, 1),
+(13, 8, 2),
+(14, 2, 2),
+(14, 5, 1),
+(15, 6, 3),
+(15, 1, 1),
+(16, 4, 1),
+(17, 7, 2),
+(18, 9, 2),
+(19, 3, 1),
+(20, 1, 1);
