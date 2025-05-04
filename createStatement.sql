@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS customer (
     customer_id INTEGER PRIMARY KEY, 
     name VARCHAR(255) NOT NULL,      
