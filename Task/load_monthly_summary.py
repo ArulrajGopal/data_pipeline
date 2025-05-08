@@ -13,7 +13,7 @@ try:
     with conn:
         with conn.cursor() as cur:
             # Call the stored procedure
-            cur.execute("CALL reload_user_order_totals()")
+            cur.execute("CALL load_monthly_summary()")
             print("Procedure executed successfully.")
             
 finally:
