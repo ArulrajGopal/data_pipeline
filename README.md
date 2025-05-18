@@ -8,3 +8,9 @@
 
 ![image](https://github.com/user-attachments/assets/17c776d1-8d13-47c0-b502-e61b412070a8)
 
+
+
+
+# Setup procedure
+1.Install Python
+2.Install postgreSQL
