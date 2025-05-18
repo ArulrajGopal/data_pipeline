@@ -14,12 +14,6 @@
 # Setup procedure
 1.Install Python
 
-2.Install postgreSQL
+2.setup using --> setup.sh
 
-3.Setup password
-
-4.Setup virtual environment
-
-5.pip install psycopg2-binary
-
-6.install airflow
+3.start server
