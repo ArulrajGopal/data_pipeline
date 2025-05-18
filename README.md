@@ -12,8 +12,11 @@
 
 
 # Setup procedure
-1.Install Python
+1.Install Python 
+
+    sudo apt-get install python3.12.3
+    python3 --version
 
 2.setup using --> setup.sh
 
-3.start server
+3.start airflow server

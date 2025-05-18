@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Setting up variables
+POSTGRES_PASSWORD="Arulraj@1234"
+AIRFLOW_USERNAME="Arulraj1"
+AIRFLOW_PASSWORD="Arulraj@1234"
+AIRFLOW_FIRSTNAME="Arulraj"
+AIRFLOW_LASTNAME="Gopal"
+AIRFLOW_ROLE="Admin"
+AIRFLOW_EMAIL="arulrajgopal@outlook.com"
+
+
+
 # Set project path
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd
@@ -56,9 +67,6 @@ else
 fi
 
 
-# Desired password for the 'postgres' user
-POSTGRES_PASSWORD="Arulraj@1234"
-
 # Set password for the 'postgres' user
 echo "Setting password for the 'postgres' PostgreSQL user..."
 
@@ -75,4 +83,45 @@ pip install -r requirements.txt
 
 echo "Dependencies installed successfully."
 
+
+# Set Airflow and Python versions
+AIRFLOW_VERSION=3.0.1
+PYTHON_VERSION="$(python --version | cut -d ' ' -f 2 | cut -d '.' -f 1-2)"
+CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+
+export AIRFLOW_HOME=~/airflow
+
+# Check if airflow is installed
+if ! command -v airflow &> /dev/null; then
+    echo "Airflow not found. Installing Apache Airflow ${AIRFLOW_VERSION}..."
+    pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+
+    echo "Initializing Airflow database..."
+    airflow db init
+
+    echo "Airflow installed and database initiated successfully."
+else
+    echo "Airflow is already installed."
+fi
+
+
+
+echo "Checking if Airflow user '$AIRFLOW_USERNAME' exists..."
+
+# List users and check if USERNAME exists (case sensitive)
+if airflow users list | grep -qw "$AIRFLOW_USERNAME"; then
+    echo "User '$AIRFLOW_USERNAME' already exists. Skipping user creation."
+else
+    echo "Creating Airflow user '$AIRFLOW_USERNAME'..."
+
+    airflow users create \
+      --username "$AIRFLOW_USERNAME" \
+      --password "$AIRFLOW_PASSWORD" \
+      --firstname "$AIRFLOW_FIRSTNAME" \
+      --lastname "$AIRFLOW_LASTNAME" \
+      --role "$AIRFLOW_ROLE" \
+      --email "$AIRFLOW_EMAIL"
+
+    echo "Airflow user created successfully."
+fi
 
