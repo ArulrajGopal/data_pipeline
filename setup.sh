@@ -4,7 +4,8 @@
 # Set project path
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd
-VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# VENV_DIR="/home/Arulraj/airflow_project2/"
 cd "$PROJECT_DIR"
 
 
@@ -36,13 +37,6 @@ cd "$PROJECT_DIR"
 
 # Setting up variables
 POSTGRES_PASSWORD="Arulraj@1234"
-AIRFLOW_USERNAME="Arulraj1"
-AIRFLOW_PASSWORD="Arulraj@1234"
-AIRFLOW_FIRSTNAME="Arulraj"
-AIRFLOW_LASTNAME="Gopal"
-AIRFLOW_ROLE="Admin"
-AIRFLOW_EMAIL="arulrajgopal@outlook.com"
-
 
 
 # Check if PostgreSQL is already installed
@@ -83,10 +77,11 @@ pip install -r requirements.txt
 echo "Dependencies installed successfully."
 
 
-# Set Airflow and Python versions
+Set Airflow and Python versions
 AIRFLOW_VERSION=3.0.1
 PYTHON_VERSION="$(python --version | cut -d ' ' -f 2 | cut -d '.' -f 1-2)"
 CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+
 
 export AIRFLOW_HOME=~/airflow
 
@@ -101,26 +96,5 @@ if ! command -v airflow &> /dev/null; then
     echo "Airflow installed and database initiated successfully."
 else
     echo "Airflow is already installed."
-fi
-
-
-
-echo "Checking if Airflow user '$AIRFLOW_USERNAME' exists..."
-
-# List users and check if USERNAME exists (case sensitive)
-if airflow users list | grep -qw "$AIRFLOW_USERNAME"; then
-    echo "User '$AIRFLOW_USERNAME' already exists. Skipping user creation."
-else
-    echo "Creating Airflow user '$AIRFLOW_USERNAME'..."
-
-    airflow users create \
-      --username "$AIRFLOW_USERNAME" \
-      --password "$AIRFLOW_PASSWORD" \
-      --firstname "$AIRFLOW_FIRSTNAME" \
-      --lastname "$AIRFLOW_LASTNAME" \
-      --role "$AIRFLOW_ROLE" \
-      --email "$AIRFLOW_EMAIL"
-
-    echo "Airflow user created successfully."
 fi
 
