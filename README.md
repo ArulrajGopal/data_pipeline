@@ -13,6 +13,7 @@
 
 # Setup procedure
 1.Setup a linux machine(for the demo, below machine used)
+
         * Azure Virtual Machine
         * Operating System: Linux (ubuntu-24_04-lts)
         * Standard D2s v3 (2 vcpus, 8 GiB memory)
