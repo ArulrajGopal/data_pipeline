@@ -12,11 +12,17 @@
 
 
 # Setup procedure
-1.Install Python 
+1.Setup a linux machine(for the demo, below machine used)
+        * Azure Virtual Machine
+        * Operating System: Linux (ubuntu-24_04-lts)
+        * Standard D2s v3 (2 vcpus, 8 GiB memory)
+2.Install Python 
 
     sudo apt-get install python3.12.3
     python3 --version
 
-2.setup using --> setup.sh
+3.Run setup file
+    
+    source setup.sh
 
-3.start airflow server
+4.start airflow server
