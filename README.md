@@ -17,6 +17,7 @@
         * Azure Virtual Machine
         * Operating System: Linux (ubuntu-24_04-lts)
         * Standard D2s v3 (2 vcpus, 8 GiB memory)
+        
 2.Install Python 
 
     sudo apt-get install python3.12.3
