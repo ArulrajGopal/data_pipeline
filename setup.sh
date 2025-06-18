@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# Setting up variables
-POSTGRES_PASSWORD="Arulraj@1234"
-AIRFLOW_USERNAME="Arulraj1"
-AIRFLOW_PASSWORD="Arulraj@1234"
-AIRFLOW_FIRSTNAME="Arulraj"
-AIRFLOW_LASTNAME="Gopal"
-AIRFLOW_ROLE="Admin"
-AIRFLOW_EMAIL="arulrajgopal@outlook.com"
-
-
 
 # Set project path
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -43,6 +33,15 @@ python3 -m venv "$VENV_DIR"
 echo "Activating virtual environment and changing to project directory..."
 source "$VENV_DIR/bin/activate"
 cd "$PROJECT_DIR"
+
+# Setting up variables
+POSTGRES_PASSWORD="Arulraj@1234"
+AIRFLOW_USERNAME="Arulraj1"
+AIRFLOW_PASSWORD="Arulraj@1234"
+AIRFLOW_FIRSTNAME="Arulraj"
+AIRFLOW_LASTNAME="Gopal"
+AIRFLOW_ROLE="Admin"
+AIRFLOW_EMAIL="arulrajgopal@outlook.com"
 
 
 
