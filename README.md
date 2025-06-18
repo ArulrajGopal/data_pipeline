@@ -17,14 +17,19 @@
         * Azure Virtual Machine
         * Operating System: Linux (ubuntu-24_04-lts)
         * Standard D2s v3 (2 vcpus, 8 GiB memory)
-        
+
 2.Install Python 
 
     sudo apt-get install python3.12.3
     python3 --version
 
-3.Run setup file
-    
+3.Clone the Repository
+
+    git clone https://github.com/ArulrajGopal/data_pipeline.git /ProjectFolder/
+
+4.Run setup file
+
+    cd ProjectFolder
     source setup.sh
 
-4.start airflow server
+5.start airflow server
