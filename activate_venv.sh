@@ -7,3 +7,6 @@ cd "$PROJECT_DIR"
 
 echo "Project directory: $PROJECT_DIR"
 echo "Virtual environment directory: $VENV_DIR"
+
+
+source "$VENV_DIR/bin/activate"
