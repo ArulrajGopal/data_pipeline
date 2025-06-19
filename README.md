@@ -43,3 +43,12 @@
     #password will be saved in "<VENV_DIR>/airflow/simple_auth_manager_passwords.json.generated"
     #VENV_DIR is defined in setup.sh file
 
+
+
+# Additional information
+
+   #to activate virtual environment
+   #set current working as project directory and run below
+   source activate_venv.sh
+
+
