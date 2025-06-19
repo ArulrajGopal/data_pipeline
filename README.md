@@ -36,6 +36,7 @@
 
     # initializes the database, creates a user, and starts all components.
     # starts the web server and the scheduler.
+    # activate virtual environment, if not activated
     airflow standalone
 
     #default username is "admin"
