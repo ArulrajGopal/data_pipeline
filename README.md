@@ -32,4 +32,13 @@
     cd ProjectFolder
     source setup.sh
 
-5.start airflow server
+5.start all components
+
+    # initializes the database, creates a user, and starts all components.
+    # starts the web server and the scheduler.
+    airflow standalone
+
+    #default username is "admin"
+    #password will be saved in "<VENV_DIR>/airflow/simple_auth_manager_passwords.json.generated"
+    #VENV_DIR is defined in setup.sh file
+

@@ -4,8 +4,7 @@
 # Set project path
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd
-# VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# VENV_DIR="/home/Arulraj/airflow_project2/"
+VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_DIR"
 
 
@@ -99,4 +98,3 @@ else
 fi
 
 
-airflow standalone
