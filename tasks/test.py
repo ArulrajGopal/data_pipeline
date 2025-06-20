@@ -4,4 +4,4 @@ import datetime
 now = datetime.datetime.now()
 
 # Print message with timestamp
-print("Hello, World! Current time is:", now.strftime("%Y-%m-%d %H:%M:%S"))
+print("Hello, World! Current UTC time is:", now.strftime("%Y-%m-%d %H:%M:%S"))
