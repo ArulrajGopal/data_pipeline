@@ -26,7 +26,7 @@ with DAG(
     t2 = BashOperator(
         task_id="sleep",
         depends_on_past=False,
-        bash_command="sleep 5",
+        bash_command="python3 $PROJECT_DIR/task/test.py",
         retries=3,
 
     )
