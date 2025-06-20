@@ -14,7 +14,7 @@ with DAG(
         "retries": 1,
         "retry_delay": timedelta(minutes=5),
     },
-    description="A simple tutorial DAG",
+    description="This job is demo the solution for parent and child tables load without orphan even though the data arrival have inconsistency",
     schedule=timedelta(days=1),
     start_date=datetime(2021, 1, 1),
     catchup=False,
@@ -34,10 +34,17 @@ with DAG(
     )
 
     t3 = BashOperator(
+        task_id="insert_data",
+        depends_on_past=False,
+        bash_command=f"python3 {BASE_DIR}/tasks/insert_data.py"
+
+    )
+
+    t4 = BashOperator(
         task_id="print_end_time",
         depends_on_past=False,
         bash_command="date",
     )
 
 
-    t1 >> [t2, t3]
+    t1 >>  t2 >> t3 >> t4

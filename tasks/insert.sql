@@ -1,3 +1,9 @@
+DELETE FROM order_items;
+DELETE FROM orders;
+DELETE FROM customer;
+DELETE FROM product;
+
+
 INSERT INTO customer (customer_id, name, city, state) VALUES
 (1, 'John Doe', 'New York', 'NY'),
 (2, 'Jane Smith', 'Los Angeles', 'CA'),
@@ -17,8 +23,6 @@ INSERT INTO product (product_id, product_name, category, unit_price) VALUES
 (9, 'Printer', 'Electronics', 150.00),
 (10, 'Smartwatch', 'Wearables', 250.00);
 
-DELETE FROM order_items;
-DELETE FROM orders;
 
 
 INSERT INTO orders (order_id, customer_id, order_date) VALUES
