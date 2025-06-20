@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Set project path
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd
-VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$PROJECT_DIR"
-
-echo "Project directory: $PROJECT_DIR"
-echo "Virtual environment directory: $VENV_DIR"
-
 # Create destination directory if it doesn't exist
 mkdir -p "$VENV_DIR/airflow/dags"
 
