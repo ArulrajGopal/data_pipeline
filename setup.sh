@@ -4,9 +4,6 @@
 PROJECT_DIR=$(jq -r '.project_directory' variables.json)
 VENV_DIR=$(jq -r '.virtual_env_directory' variables.json)
 
-#set environment variable
-export PROJECT_DIR
-export VENV_DIR
 
 echo "Project directory: $PROJECT_DIR"
 echo "Virtual environment directory: $VENV_DIR"
@@ -36,6 +33,8 @@ source "$VENV_DIR/bin/activate"
 cd "$PROJECT_DIR"
 
 # Setting up variables
+export PROJECT_DIR
+export VENV_DIR
 POSTGRES_PASSWORD="Arulraj@1234"
 
 
@@ -77,7 +76,7 @@ pip install -r requirements.txt
 echo "Dependencies installed successfully."
 
 
-Set Airflow and Python versions
+# Set Airflow and Python versions
 AIRFLOW_VERSION=3.0.2
 PYTHON_VERSION="$(python --version | cut -d ' ' -f 2 | cut -d '.' -f 1-2)"
 CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
