@@ -4,8 +4,13 @@
 PROJECT_DIR=$(jq -r '.project_directory' variables.json)
 VENV_DIR=$(jq -r '.virtual_env_directory' variables.json)
 
+#set environment variable
+export PROJECT_DIR
+export VENV_DIR
+
 echo "Project directory: $PROJECT_DIR"
 echo "Virtual environment directory: $VENV_DIR"
+
 
 # Check Python version
 python3 --version
