@@ -34,11 +34,12 @@
 
 5.start all components
 
-    # initializes the database, creates a user, and starts all components.
-    # starts the web server and the scheduler.
-    # activate virtual environment, if not activated
+
+    # initializes the database, creates a user and starts all components(webserver and scheduler)
     airflow standalone
 
+
+    # activate virtual environment, if not activated
     #default username is "admin"
     #password will be saved in "<VENV_DIR>/airflow/simple_auth_manager_passwords.json.generated"
     #VENV_DIR is defined in setup.sh file
