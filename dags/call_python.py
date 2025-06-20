@@ -5,7 +5,7 @@ from airflow.providers.standard.operators.bash import BashOperator
 
 from airflow.sdk import DAG
 with DAG(
-    "first_job",
+    "call_python",
     default_args={
         "depends_on_past": False,
         "retries": 1,
@@ -31,11 +31,5 @@ with DAG(
 
     )
 
-    t3 = BashOperator(
-        task_id="print_end_time",
-        depends_on_past=False,
-        bash_command="date",
-    )
 
-
-    t1 >> [t2, t3]
+    t1 >> [t2]

@@ -22,7 +22,14 @@ cp -a "$SOURCE_DIR"/* "$DEST_DIR"/
 
 echo "echo Files copied successfully from $SOURCE_DIR to $DEST_DIR"
 
-#register the dag with airflow scheduler
-python $VENV_DIR/airflow/dags/first_job.py
+
+DAGS_DIR="$VENV_DIR/airflow/dags"
+
+for file in "$DAGS_DIR"/*.py; do
+    echo "Registering: $file"
+    python "$file"
+done
+
+echo "Registered all the dags successfully"
 
 
