@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 from airflow.providers.standard.operators.bash import BashOperator
 import os 
 
-# project_directory = os.getenv("PROJECT_DIR")
 BASE_DIR = os.path.dirname(os.path.dirname(__file__)) 
 
 from airflow.sdk import DAG

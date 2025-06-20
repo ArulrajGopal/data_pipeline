@@ -1,11 +1,14 @@
 import textwrap
 from datetime import datetime, timedelta
 from airflow.providers.standard.operators.bash import BashOperator
+import os 
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__)) 
 
 
 from airflow.sdk import DAG
 with DAG(
-    "call_python",
+    "demo_job",
     default_args={
         "depends_on_past": False,
         "retries": 1,
@@ -24,10 +27,9 @@ with DAG(
     )
 
     t2 = BashOperator(
-        task_id="sleep",
+        task_id="say_hello",
         depends_on_past=False,
-        bash_command="sleep 5",
-        retries=3,
+        bash_command=f"python3 {BASE_DIR}/tasks/create_ddl.py"
 
     )
 
