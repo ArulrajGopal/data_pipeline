@@ -1,12 +1,8 @@
 #!/bin/bash
 
-
-# Set project path
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd
-VENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$PROJECT_DIR"
-
+# Read from the JSON file
+PROJECT_DIR=$(jq -r '.project_directory' variables.json)
+VENV_DIR=$(jq -r '.virtual_env_directory' variables.json)
 
 echo "Project directory: $PROJECT_DIR"
 echo "Virtual environment directory: $VENV_DIR"

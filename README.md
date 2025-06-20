@@ -25,29 +25,34 @@
 
 3.Clone the Repository
 
-    git clone https://github.com/ArulrajGopal/data_pipeline.git /ProjectFolder/
+    git clone https://github.com/ArulrajGopal/data_pipeline.git /project_directory/
 
-4.Run setup file
+4.set project directory and virtual environment directory in variable.json
 
-    cd ProjectFolder
+
+5.Run setup file
+
+    cd project_directory
     source setup.sh
 
-5.start all components
+6.start all components
 
 
     # initializes the database, creates a user and starts all components(webserver and scheduler)
+    # Note: Once the initial setup has been completed on a machine/server, all future starts will begin from this step onwards only
+
     airflow standalone
 
 
-6.deploy the dags(note: - deletion of dags is not implemented.)
+7.deploy the dags(note: - deletion of dags is not implemented.)
 
     source deploy_dags.sh
 
 
-7.login webui using "http://localhost:8080/"
+8.login webui using "http://localhost:8080/"
 
 
-Note: After the initial setup has been completed on a machine, all future starts will begin from Step 5 onward.
+
 
 
 

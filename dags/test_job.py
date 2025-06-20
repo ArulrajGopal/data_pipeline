@@ -24,7 +24,7 @@ with DAG(
     t2 = BashOperator(
         task_id="sleep",
         depends_on_past=False,
-        bash_command="pwd"
+        bash_command="python3 /home/Arulraj/Desktop/data_pipeline/task/test.py"
 
     )
 
