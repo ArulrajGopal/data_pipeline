@@ -3,7 +3,8 @@ from datetime import datetime, timedelta
 from airflow.providers.standard.operators.bash import BashOperator
 import os 
 
-project_directory = os.getenv("PROJECT_DIR")
+# project_directory = os.getenv("PROJECT_DIR")
+BASE_DIR = os.path.dirname(os.path.dirname(__file__)) 
 
 from airflow.sdk import DAG
 with DAG(
@@ -24,9 +25,9 @@ with DAG(
     )
 
     t2 = BashOperator(
-        task_id="sleep",
+        task_id="say_hello",
         depends_on_past=False,
-        bash_command=f"python3 {project_directory}/task/test.py"
+        bash_command=f"python3 {BASE_DIR}/tasks/test.py"
 
     )
 
