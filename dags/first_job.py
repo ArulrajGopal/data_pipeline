@@ -19,7 +19,7 @@ with DAG(
 ) as dag:
 
     t1 = BashOperator(
-        task_id="print_date",
+        task_id="print_start_time",
         bash_command="date",
     )
 
@@ -28,12 +28,13 @@ with DAG(
         depends_on_past=False,
         bash_command="sleep 5",
         retries=3,
+
     )
 
     t3 = BashOperator(
-        task_id="templated",
+        task_id="print_end_time",
         depends_on_past=False,
-        bash_command=templated_command,
+        bash_command="date",
     )
 
     t1 >> [t2, t3]
