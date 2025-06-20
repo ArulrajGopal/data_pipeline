@@ -10,12 +10,12 @@ echo "Project directory: $PROJECT_DIR"
 echo "Virtual environment directory: $VENV_DIR"
 
 # Create destination directory if it doesn't exist
-mkdir -p "$DEST_DIR"
+mkdir -p "$VENV_DIR/airflow/dags"
 
 # Copy all files (not directories) from source to destination
 cp -a "$PROJECT_DIR/dags/"/* "$VENV_DIR/airflow/dags"/
 
-echo "dag files copied successfully from $ROJECT_DIR/dags/ to $VENV_DIR/airflow/dags"
+echo "dag files copied successfully from $PROJECT_DIR/dags/ to $VENV_DIR/airflow/dags"
 
 
 DAGS_DIR="$VENV_DIR/airflow/dags"

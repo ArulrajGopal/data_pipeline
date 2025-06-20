@@ -7,9 +7,7 @@ from airflow.sdk import DAG
 with DAG(
     "test_job",
     default_args={
-        "depends_on_past": False,
-        "retries": 1,
-        "retry_delay": timedelta(minutes=5),
+        "depends_on_past": False
     },
     description="A simple tutorial DAG",
     schedule=timedelta(days=1),
@@ -26,8 +24,7 @@ with DAG(
     t2 = BashOperator(
         task_id="sleep",
         depends_on_past=False,
-        bash_command="python3 $PROJECT_DIR/task/test.py",
-        retries=3,
+        bash_command="pwd"
 
     )
 
@@ -38,4 +35,4 @@ with DAG(
     )
 
 
-    t1 >> [t2, t3]
+    t1 >> t2 >> t3
