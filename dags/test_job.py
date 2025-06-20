@@ -5,7 +5,7 @@ from airflow.providers.standard.operators.bash import BashOperator
 
 from airflow.sdk import DAG
 with DAG(
-    "first_job",
+    "test_job",
     default_args={
         "depends_on_past": False,
         "retries": 1,

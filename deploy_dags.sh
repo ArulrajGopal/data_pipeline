@@ -30,6 +30,6 @@ for file in "$DAGS_DIR"/*.py; do
     python "$file"
 done
 
-echo "Registered all the dags successfully"
+echo "Registered all the dags successfully, it will take few mins to reflect in UI"
 
 

@@ -39,17 +39,32 @@
     airflow standalone
 
 
-    # activate virtual environment, if not activated
-    #default username is "admin"
-    #password will be saved in "<VENV_DIR>/airflow/simple_auth_manager_passwords.json.generated"
-    #VENV_DIR is defined in setup.sh file
+6.deploy the dags(note: - deletion of dags is not implemented.)
+
+    source deploy_dags.sh
+
+
+7.login webui using "http://localhost:8080/"
+
+
+Note: After the initial setup has been completed on a machine, all future starts will begin from Step 5 onward.
 
 
 
 # Additional information
 
-   #to activate virtual environment
-   #set current working as project directory and run below
-   source activate_venv.sh
+    1.To activate virtual environment, in case of exited the environment
+
+        - set current working as project directory and run below
+
+            source activate_venv.sh
+
+    2.default login credentials
+
+        - username is "admin"
+
+        - password will be saved in "<VENV_DIR>/airflow/simple_auth_manager_passwords.json.generated"
+        
+        - VENV_DIR is defined in setup.sh file
 
 
