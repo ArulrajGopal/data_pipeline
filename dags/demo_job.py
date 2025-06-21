@@ -41,10 +41,24 @@ with DAG(
     )
 
     t4 = BashOperator(
+        task_id="load_order_details",
+        depends_on_past=False,
+        bash_command=f"python3 {BASE_DIR}/tasks/load_order_details.py"
+
+    )
+
+    t5 = BashOperator(
+        task_id="load_monthly_summary",
+        depends_on_past=False,
+        bash_command=f"python3 {BASE_DIR}/tasks/load_monthly_summary.py"
+
+    )
+
+    t6 = BashOperator(
         task_id="print_end_time",
         depends_on_past=False,
         bash_command="date",
     )
 
 
-    t1 >>  t2 >> t3 >> t4
+    t1 >>  t2 >> t3 >> t4 >> t5 >> t6 
