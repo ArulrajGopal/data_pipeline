@@ -15,7 +15,7 @@ with DAG(
         "retry_delay": timedelta(minutes=5),
     },
     description="This job is demo the solution for parent and child tables load without orphan even though the data arrival have inconsistency",
-    schedule_interval="*/5 * * * *",
+    schedule="*/5 * * * *",
     start_date=datetime(2021, 1, 1),
     catchup=False,
     tags=["arul_added_dag"],
